@@ -2,13 +2,41 @@
 
 In this project we explore the price-distance decay from the CBD of the Melbourne residential market to determine what areas may hold the best value. This is done by analysing price decay across dwelling tpyes and room counts, identifying market inefficiencies and value pockets for stakeholders
 
-## Key Findings
+## Executive Summary
 
-blah blah blah
+This analysis explores the Melbourne residential housing market to identify value opportunities, price trends, and strategic insights for home buyers. Using property listings, distances from the CBD, room counts, dwelling types, and agency data, we evaluated how location, property features, and market concentration influence pricing.  
 
-## Core Recommendations
+### Key Insights
 
-# Findings
+1. **Distance Decay:**  
+   * Houses and Townhouses exhibit a strong negative correlation with distance from the CBD; prices drop sharply as you move further out.  
+   * Units are less sensitive to location, with prices largely driven by internal features rather than land value.  
+
+2. **Room Count & Availability:**  
+   * 3-room properties dominate the inner and mid-suburbs, offering balance between space, availability, and affordability.  
+   * Larger homes (4+ rooms) are limited and mostly premium houses; they are scarce in Townhouses and Units.  
+
+3. **Agency Influence:**  
+   * Top agencies in inner-ring suburbs (<9 km) maintain premium pricing.  
+   * Outer suburbs (>12 km) show convergence in pricing, meaning property features matter more than agency reputation.  
+
+4. **Market Concentration:**  
+   * Inner suburbs have high listing density and premium pricing.  
+   * Outer suburbs have lower density, more mid-priced homes, and opportunities for value-focused buyers.  
+
+5. **Geographic Price Deviations:**  
+   * Some outer suburbs (e.g., Airport West, Altona, Altona North) are significantly under-valued relative to expected CBD distance pricing.  
+   * Inner suburbs (e.g., Albert Park, Abbotsford) are over-valued, reflecting high demand and premium features.  
+
+### Implications for Home Buyers
+
+* **Inner suburbs (<6 km):** Limited supply, high prices — ideal for buyers prioritizing lifestyle, schools, and proximity.  
+* **Mid-suburbs (6–12 km):** Balanced options with moderate pricing and availability; suitable for families seeking space without extreme premiums.  
+* **Outer suburbs (>12 km):** Larger homes at lower prices, potential value opportunities; best for buyers prioritizing affordability or future growth.  
+* **Property Type Selection:** Choose Houses/Townhouses for land and long-term value; Units for affordability and low maintenance.  
+* **Agency Strategy:** Focus on top agencies in inner suburbs for premium listings; outer suburbs, agency matters less.  
+
+> **Overall:** By balancing **distance, property type, room count, and agency**, home buyers can maximize value in Melbourne’s dynamic housing market, choosing properties that meet both lifestyle and budget goals.
 
 ## Distance Decay By Property Type
 
@@ -178,5 +206,84 @@ blah blah blah
 * **Premium buyers** may focus on red suburbs, where high demand or superior features justify above-baseline pricing.
    
 * Geographic deviations show that **distance alone doesn’t fully explain price**; local amenities, property type, and suburb desirability play a key role.
+
+## Market Comparison: Price Decay by Region
+
+<img width="1094" height="591" alt="image" src="https://github.com/user-attachments/assets/58ee8db7-d4c7-4f10-b8de-07b5692d5318" />
+
+### Regional Metrics (Average Price by Distance Zone)
+
+| Regionname             | 0-3 km      | 3-6 km      | 6-9 km      | 9-12 km     | 12+ km      |
+|------------------------|------------|------------|------------|------------|------------|
+| Northern Metropolitan  | $1,077,237 | -          | $1,341,048 | -          | -          |
+| Southern Metropolitan  | -          | $1,881,869 | $1,437,532 | $1,671,816 | $1,100,871 |
+| Western Metropolitan   | -          | $1,008,282 | -          | $804,324   | $745,639   |
+
+**Note:** `-` indicates no listings in that distance zone.
+
+### Regional Decay Rates:
+| Regionname             | Price Decay per km (AUD/km) |
+|------------------------|-----------------------------|
+| Northern Metropolitan  | 651,282                     |
+| Southern Metropolitan  | 589,326                     |
+| Western Metropolitan   | 270,000                     |
+
+### Observations:
+* **Northern Metropolitan** shows a strong inner- and mid-ring presence with limited outer-zone listings.
+    
+* **Southern Metropolitan** maintains high prices across 3–12 km, indicating premium inner and middle suburbs.
   
-* This chart helps stakeholders **identify hidden value pockets and premium zones**, complementing your earlier Price vs Distance and KDE analyses.
+* **Western Metropolitan** has lower prices overall and a steeper drop-off beyond 6 km, reflecting outer-ring affordability.
+  
+* Outer zones (>12 km) converge toward similar pricing across regions, demonstrating the **dominant effect of distance** in the outer market.
+
+### Insights:
+* **Northern and Southern regions** have similar high-value inner/mid-ring markets, though Northern decay is slightly steeper.
+   
+* **Western Metropolitan** offers value-focused options further from the CBD due to its shallower slope in inner-ring but sharper drop in outer-ring.
+  
+* Stakeholders can **target inner-ring Southern/Northern suburbs for premium properties** and **outer Western suburbs for value or growth potential**.
+
+## Recommendations for Home Buyers
+
+### 1. Property Type Considerations
+* **Houses & Townhouses:** Best for families seeking land, backyard space, and long-term growth. Prices drop sharply with distance from the CBD, so inner- and mid-ring areas are premium but offer better access to schools, transport, and amenities.
+* **Units/Apartments:** More affordable and less sensitive to distance. Ideal for single professionals, couples, or small families who prioritize low-maintenance living over land size.
+
+### 2. Room Count Strategy
+* **3-Room Homes:** Most widely available, especially in inner suburbs (5–15 km). Good balance between affordability and space; high turnover makes it easier to resell if needed.
+  
+* **Larger Homes (4+ Rooms):** Limited supply, mostly premium houses. Suitable for families needing more space; may need to look further from the CBD to find available listings.
+
+### 3. Choosing the Right Agency
+* **Inner Zones (<9 km):** Top agencies often list premium properties. For higher-quality homes or better access to in-demand listings, focus on:
+  
+  - **Northern:** Nelson, Biggin, Jellis, Collins, McGrath  
+  - **Southern:** Jellis, Marshall, Hockingstuart, Greg, Buxton  
+  - **Western:** Nelson, Brad, Barry, Hockingstuart, Barlow
+
+* **Outer Zones (>12 km):** Agency reputation matters less; property features and pricing dominate.
+
+### 4. Geographic Value Opportunities
+* **Under-Valued Suburbs:** Areas priced below the distance-adjusted baseline can offer better value. Examples include Airport West, Altona, Altona North, and Avondale Heights.
+  
+* **Over-Valued Suburbs:** Inner suburbs with high demand, like Albert Park or Abbotsford, carry a premium price. Ideal if you prioritize location, amenities, and prestige over cost.
+
+### 5. Distance & Lifestyle Trade-Off
+* **Inner Suburbs (<6 km):** Limited availability, higher prices, excellent amenities. Best for buyers who prioritize lifestyle and convenience.
+  
+* **Mid-Suburbs (6–12 km):** More listings, moderate pricing, balance of space and accessibility.
+  
+* **Outer Suburbs (>12 km):** Larger homes, lower prices, but longer commute. Good for buyers seeking affordability or larger properties.
+
+### 6. Practical Takeaways
+* Balance **distance from CBD**, **property type**, and **room count** to meet lifestyle and budget goals.
+    
+* Inner-ring properties: pay for location, proximity to work, schools, and amenities.
+  
+* Outer-ring properties: more affordable, larger, better value per square meter, but consider commute and transport access.
+   
+* Units: cost-efficient, less land, more predictable pricing — suitable for small households or first-time buyers.  
+
+**Overall Insight:** 
+Melbourne’s housing market rewards buyers who consider **location, property type, and size together**. By targeting suburbs with favorable price gaps or mid-ring properties, home buyers can maximize value without overpaying for location alone.
