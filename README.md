@@ -136,7 +136,7 @@ This analysis explores the Melbourne residential housing market to identify valu
   
 * Outer-ring properties offer more homogeneous pricing, highlighting the importance of features over agency.
 
-  ## Western Metroplitan
+  ## Western Metropolitan
 
   <img width="1105" height="545" alt="image" src="https://github.com/user-attachments/assets/45640c71-30f3-41b7-a9ec-629e350e4ee3" />
 
