@@ -66,6 +66,60 @@ FROM SellerRanks
 GROUP BY Regionname, SellerGrouped
 ORDER BY Regionname, TotalSales DESC;
 
+WITH DistanceBinned AS (
+    SELECT *,
+        CASE 
+            WHEN Distance BETWEEN 0 AND 3 THEN '0-3km (CBD)'
+            WHEN Distance > 3 AND Distance <= 6 THEN '3-6km (Inner)'
+            WHEN Distance > 6 AND Distance <= 9 THEN '6-9km (Middle)'
+            WHEN Distance > 9 AND Distance <= 12 THEN '9-12km (Mid-Outer)'
+            ELSE '12km+'
+        END AS Distance_Zone
+    FROM v_melb_final_for_python
+),
+RegionalGrouped AS (
+    SELECT 
+        Regionname,
+        SellerG,
+        Distance_Zone,
+        Price,
+        CASE 
+            WHEN Regionname = 'Northern Metropolitan' AND SellerG IN ('Nelson','Biggin','Jellis','Collins','McGrath') THEN SellerG
+            WHEN Regionname = 'Southern Metropolitan' AND SellerG IN ('Jellis','Marshall','hockingstuart','Greg','Buxton') THEN SellerG
+            WHEN Regionname = 'Western Metropolitan' AND SellerG IN ('Nelson','Brad','Barry','hockingstuart','Barlow') THEN SellerG
+            ELSE 'Other (Regional)'
+        END AS Regional_Group
+    FROM DistanceBinned
+)
+SELECT 
+    Regionname,
+    Distance_Zone,
+    Regional_Group,
+    AVG(Price) AS Avg_Price,
+    COUNT(*) AS Listing_Count
+FROM RegionalGrouped
+GROUP BY Regionname, Distance_Zone, Regional_Group
+ORDER BY Regionname, Distance_Zone, Avg_Price DESC;
+
+-- Count of listings per Distance bracket and Price range
+SELECT 
+    CASE 
+        WHEN Distance < 3 THEN '0-3 km'
+        WHEN Distance BETWEEN 3 AND 6 THEN '3-6 km'
+        WHEN Distance BETWEEN 6 AND 9 THEN '6-9 km'
+        WHEN Distance BETWEEN 9 AND 12 THEN '9-12 km'
+        ELSE '12+ km'
+    END AS Distance_Zone,
+    CASE 
+        WHEN Price < 500000 THEN '<500K'
+        WHEN Price BETWEEN 500000 AND 1000000 THEN '500K-1M'
+        WHEN Price BETWEEN 1000000 AND 1500000 THEN '1M-1.5M'
+        ELSE '1.5M+'
+    END AS Price_Range,
+    COUNT(*) AS Listings
+FROM melb_data
+GROUP BY Distance_Zone, Price_Range
+ORDER BY Distance_Zone, Price_Range;
 
 /* ============================================================
    3. DATA CLEANING & INTEGRITY CHECKS
