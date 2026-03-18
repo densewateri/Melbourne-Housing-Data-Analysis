@@ -2,6 +2,22 @@
 
 In this project we explore the price-distance decay from the CBD of the Melbourne residential market to determine what areas may hold the best value. This is done by analysing price decay across dwelling tpyes and room counts, identifying market inefficiencies and value pockets for stakeholders
 
+## Table of Contents
+
+1. [Executive Summary](#executive-summary)
+2. [Key Insights](#key-insights)
+   - [Distance Decay By Property Type](#distance-decay-by-property-type)
+   - [Price vs Distance, Segmented by Number of Rooms](#price-vs-distance-segmented-by-number-of-rooms)
+   - [Price Decay By Agency](#price-decay-by-agency)
+     - [Northern Metropolitan](#northern-metropolitan)
+     - [Southern Metropolitan](#southern-metropolitan)
+     - [Western Metropolitan](#western-metroplitan)
+   - [Melbourne Market Concentration: Price vs Distance](#melbourne-market-concentration-price-vs-distance)
+   - [Melbourne Suburb Analysis: Geographic Price Deviation](#melbourne-suburb-analysis-geographic-price-deviation)
+   - [Market Comparison: Price Decay by Region](#market-comparison-price-decay-by-region)
+3. [Recommendations for Home Buyers](#recommendations-for-home-buyers)
+4. [References / Data Sources](#references--data-sources)
+
 ## Executive Summary
 
 This analysis explores the Melbourne residential housing market to identify value opportunities, price trends, and strategic insights for home buyers. Using property listings, distances from the CBD, room counts, dwelling types, and agency data, we evaluated how location, property features, and market concentration influence pricing.  
@@ -59,7 +75,7 @@ This analysis explores the Melbourne residential housing market to identify valu
 
 * Townhouses act as “House-lite” alternatives, following similar valuation patterns to Houses, unlike high-density Units.
 
-## Price Vs Distance, segmented by no. of rooms
+## Price vs Distance, Segmented by Number of Rooms
 
 <img width="1127" height="944" alt="image" src="https://github.com/user-attachments/assets/7cc15f7e-a22a-4fb5-80d7-b91507a10661" />
 
