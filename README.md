@@ -1,6 +1,6 @@
 # Melbourne-Housing-Data-Analysis
 
-In this project we explore the price-distance decay from the CBD of the Melbourne residential market to determine what areas may hold the best value. This is done by analysing price decay across dwelling tpyes and room counts, identifying market inefficiencies and value pockets for stakeholders
+In this project we explore the price-distance decay from the CBD of the Melbourne residential market to determine what areas may hold the best value. This is done by analysing price decay across dwelling tpyes and room counts, identifying market inefficiencies and value pockets for stakeholders.
 
 ## Table of Contents
 
@@ -301,5 +301,8 @@ This analysis explores the Melbourne residential housing market to identify valu
    
 * Units: cost-efficient, less land, more predictable pricing — suitable for small households or first-time buyers.  
 
-**Overall Insight:** 
-Melbourne’s housing market rewards buyers who consider **location, property type, and size together**. By targeting suburbs with favorable price gaps or mid-ring properties, home buyers can maximize value without overpaying for location alone.
+> **Overall Insight:** Melbourne’s housing market rewards buyers who consider **location, property type, and size together**. By targeting suburbs with favorable price gaps or mid-ring properties, home buyers can maximize value without overpaying for location alone.
+
+## References / Data Sources
+
+Kaggle: https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot
