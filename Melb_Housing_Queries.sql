@@ -1,6 +1,4 @@
--/* ============================================================
-   1. DATA DISCOVERY & EDA
-   ============================================================ */
+-- 1. DATA DISCOVERY & EDA
 
 -- Check if data is accessible
 SELECT * FROM melb_data;
@@ -35,17 +33,15 @@ FROM melb_data
 GROUP BY Regionname, Suburb
 ORDER BY Regionname, listings DESC;
 
-/* ============================================================
-   2. COMPETITIVE ANALYSIS (Sellers)
-   ============================================================ */
 
--- Checking top 5 real estate companies per region
+-- 2. COMPETITIVE ANALYSIS (Sellers)
+
+-- Top 5 real estate companies per region
 WITH SellerRanks AS (
     SELECT 
         Regionname,
         SellerG,
         COUNT(*) AS SaleCount,
-        -- Rank sellers within each specific region
         ROW_NUMBER() OVER (
             PARTITION BY Regionname 
             ORDER BY COUNT(*) DESC
@@ -56,7 +52,6 @@ WITH SellerRanks AS (
 )
 SELECT 
     Regionname,
-    -- Group sellers outside the top 5 as 'Other'
     CASE 
         WHEN SellerRank <= 5 THEN SellerG 
         ELSE 'Other (Regional)' 
@@ -65,6 +60,9 @@ SELECT
 FROM SellerRanks
 GROUP BY Regionname, SellerGrouped
 ORDER BY Regionname, TotalSales DESC;
+
+
+-- 3. PRICE & DISTANCE ANALYSIS BY REGION
 
 WITH DistanceBinned AS (
     SELECT *,
@@ -101,7 +99,8 @@ FROM RegionalGrouped
 GROUP BY Regionname, Distance_Zone, Regional_Group
 ORDER BY Regionname, Distance_Zone, Avg_Price DESC;
 
--- Count of listings per Distance bracket and Price range
+
+-- Listings per Distance bracket and Price range
 SELECT 
     CASE 
         WHEN Distance < 3 THEN '0-3 km'
@@ -121,24 +120,23 @@ FROM melb_data
 GROUP BY Distance_Zone, Price_Range
 ORDER BY Distance_Zone, Price_Range;
 
-/* ============================================================
-   3. DATA CLEANING & INTEGRITY CHECKS
-   ============================================================ */
 
--- Checking for null or missing spatial data
+-- 4. DATA CLEANING & INTEGRITY CHECKS
+
+-- Null or missing spatial data
 SELECT Suburb, Lattitude, Longtitude 
 FROM melb_data
 WHERE Lattitude = 0 
    OR Longtitude = 0 
    OR Lattitude IS NULL;
 
--- Checking for exact row duplicates
+-- Exact row duplicates
 SELECT Address, Price, Date, Suburb, Type, COUNT(*) AS occurrence_count
 FROM melb_data
 GROUP BY Address, Price, Date, Suburb, Type
 HAVING occurrence_count > 1;
 
--- Identifying double listings (same address, different price/entry)
+-- Double listings (same address, different price/entry)
 SELECT 
     m.Address, 
     m.Suburb, 
@@ -156,11 +154,9 @@ JOIN (
 ORDER BY m.Address, m.Date;
 
 
-/* ============================================================
-   4. DATA ENGINEERING (PYTHON/BI PREP)
-   ============================================================ */
+-- 5. FINAL DATA VIEW (for Python/BI)
 
--- Create final view: Keep only the latest transaction per address
+-- Keep only latest transaction per address
 CREATE OR REPLACE VIEW v_melb_final_for_python AS
 WITH RankedSales AS (
     SELECT *, 
